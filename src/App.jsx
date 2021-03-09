@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Inicio from './components/Inicio/Inicio';
 import Blog from './components/blog/Blog';
 import Acercademi from './components/Acercademi/Acercademi';
+import Articulo from './components/Articulo/Articulo';
 
 const App = () => {
   return ( 
@@ -14,6 +15,7 @@ const App = () => {
         <Main>
           <Route exact path='/' component={Inicio}/>
           <Route path='/blog' component={Blog}/>
+          <Route path='/pokemon/:name' component={Articulo}/>
           <Route path='/acerca-de'component={Acercademi}/>   
         </Main>
       </ContenedorPrincipal>
