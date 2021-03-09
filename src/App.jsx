@@ -1,11 +1,12 @@
 import React from 'react';
-import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Style from 'styled-components';
 import Header from './components/Header/Header';
 import Inicio from './components/Inicio/Inicio';
 import Blog from './components/blog/Blog';
 import Acercademi from './components/Acercademi/Acercademi';
 import Articulo from './components/Articulo/Articulo';
+import Error404 from './components/Error404/Error404';
 
 const App = () => {
   return ( 
@@ -13,10 +14,13 @@ const App = () => {
       <ContenedorPrincipal>
         <Header/>
         <Main>
-          <Route exact path='/' component={Inicio}/>
-          <Route path='/blog' component={Blog}/>
-          <Route path='/pokemon/:name' component={Articulo}/>
-          <Route path='/acerca-de'component={Acercademi}/>   
+          <Switch>
+            <Route exact path='/' component={Inicio}/>
+            <Route exact  path='/blog' component={Blog}/>
+            <Route path='/pokemon/:name' component={Articulo}/>
+            <Route path='/acerca-de'component={Acercademi}/>   
+            <Route component={Error404}/>
+          </Switch>
         </Main>
       </ContenedorPrincipal>
     </BrowserRouter>
